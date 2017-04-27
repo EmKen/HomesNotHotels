@@ -22,6 +22,11 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 # include clearance
 gem 'clearance'
+# include figaro for security
+gem 'figaro'
+# include omniauth for Facebook login
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

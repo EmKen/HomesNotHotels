@@ -20,6 +20,9 @@ class UsersController < Clearance::UsersController
     end
   end
 
+  def edit
+  end
+
   private
 
   def user_from_params
