@@ -1,1 +1,16 @@
-<h2> Homepage </h2>
+<h2> Listings </h2>
+
+<% @listings.each do |listing| %>
+	<h3><%=link_to listing.title, listing_path(listing) %></h3>
+
+	<p>Price: £<%= listing.price_per_night %></p>
+
+	<p>Room Type: <%= listing.room_type %></p>
+
+	<p>Property Type: <%= listing.property_type %></p>
+
+	<p>Bedrooms: <%= listing.bedroom_num %> Beds: <%= listing.bed_num %></p>
+
+	<p>Location: <%= listing.city_town %>, <%= listing.state_county %>, <%= listing.country %></p>
+
+<% end %>	
