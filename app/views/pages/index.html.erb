@@ -1,1 +1,37 @@
-<h2> Homepage </h2>
+<div>
+	<%=link_to "All", root_path %> 
+	<% Listing.amenity_counts.each do |amenity| %>
+		  <%= link_to amenity.name, tag_path(amenity.name) %>
+	<% end %>
+
+</div>
+
+<%= form_tag("/", method: 'get') do %>
+	<% Listing.amenity_counts.each do |tag| %>
+	    <div>
+	      <%= check_box_tag "keywords[]", tag.name, @selected_tags.present? ? @selected_tags.include?(tag.name) : '' %>
+	      <%= tag.name %>
+	    </div>
+	<% end %>
+	<%= submit_tag "Filter" %>
+<% end %>
+
+
+<div>
+	<h2> Listings </h2>
+
+	<% @listings.each do |listing| %>
+		<h3><%=link_to listing.title, listing_path(listing) %></h3>
+
+		<p>Price: £<%= listing.price_per_night %></p>
+
+		<p>Room Type: <%= listing.room_type %></p>
+
+		<p>Property Type: <%= listing.property_type %></p>
+
+		<p>Bedrooms: <%= listing.bedroom_num %> Beds: <%= listing.bed_num %></p>
+
+		<p>Location: <%= listing.city_town %>, <%= listing.state_county %>, <%= listing.country %></p>
+
+	<% end %>	
+</div>

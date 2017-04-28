@@ -72,4 +72,18 @@
   <%= form.text_field :zip_postcode %>
 </div>
 
+<div class="checkbox-fields">
+  Amenities</br>
+  <%= form.label :amenity_list, "Washing machine" %>
+  <%= form.check_box :amenity_list, { :multiple => true }, 'Washing machine', nil %>
+  <%= form.label :amenity_list, "Swimming pool" %>
+  <%= form.check_box :amenity_list, { :multiple => true }, 'Swimming pool', nil %>
+  <%= form.label :amenity_list, "WiFi" %>
+  <%= form.check_box :amenity_list, { :multiple => true }, 'WiFi', nil %>
+  <%= form.label :amenity_list, "Kitchen" %>
+  <%= form.check_box :amenity_list, { :multiple => true }, 'Kitchen', nil %>
+</div>
+
+
+
 

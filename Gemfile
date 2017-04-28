@@ -27,6 +27,8 @@ gem 'figaro'
 # include omniauth for Facebook login
 gem 'omniauth'
 gem 'omniauth-facebook'
+# for tagging
+gem 'acts-as-taggable-on'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

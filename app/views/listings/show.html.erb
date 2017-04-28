@@ -12,6 +12,13 @@
 
 <p>Location: <%= @listing.city_town %>, <%= @listing.state_county %>, <%= @listing.country %></p>
 
+<p>Amenities</br> <ul>
+<% @listing.amenity_list.each do |amenity| %>
+  <li><%= amenity %></li>
+<% end %>
+</ul>
+</p>
+
 <% if @listing.user_id == current_user.id %>
 <%= link_to 'Edit this listing', edit_listing_path(@listing) %>
 
