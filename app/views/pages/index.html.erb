@@ -1,16 +1,27 @@
-<h2> Listings </h2>
+<div>
+	<%=link_to "All", root_path %> 
+	<% Listing.amenity_counts.each do |amenity| %>
+		  <%= link_to amenity.name, tag_path(amenity.name) %>
+	<% end %>
 
-<% @listings.each do |listing| %>
-	<h3><%=link_to listing.title, listing_path(listing) %></h3>
+</div>
 
-	<p>Price: £<%= listing.price_per_night %></p>
 
-	<p>Room Type: <%= listing.room_type %></p>
+<div>
+	<h2> Listings </h2>
 
-	<p>Property Type: <%= listing.property_type %></p>
+	<% @listings.each do |listing| %>
+		<h3><%=link_to listing.title, listing_path(listing) %></h3>
 
-	<p>Bedrooms: <%= listing.bedroom_num %> Beds: <%= listing.bed_num %></p>
+		<p>Price: £<%= listing.price_per_night %></p>
 
-	<p>Location: <%= listing.city_town %>, <%= listing.state_county %>, <%= listing.country %></p>
+		<p>Room Type: <%= listing.room_type %></p>
 
-<% end %>	
+		<p>Property Type: <%= listing.property_type %></p>
+
+		<p>Bedrooms: <%= listing.bedroom_num %> Beds: <%= listing.bed_num %></p>
+
+		<p>Location: <%= listing.city_town %>, <%= listing.state_county %>, <%= listing.country %></p>
+
+	<% end %>	
+</div>
