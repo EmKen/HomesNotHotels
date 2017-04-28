@@ -16,7 +16,6 @@ class UsersController < Clearance::UsersController
         format.js
         format.html
       end
-     # render template: "users/new"
     end
   end
 
