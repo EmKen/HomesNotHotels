@@ -1,0 +1,21 @@
+<h1><%= @listing.title %></h1>
+
+<p><%= @listing.description %></p>
+
+<p>Price: £<%= @listing.price_per_night %></p>
+
+<p>Room Type: <%= @listing.room_type %></p>
+
+<p>Property Type: <%= @listing.property_type %></p>
+
+<p>Guests: <%= @listing.guest_num %> Bedrooms: <%= @listing.bedroom_num %> Beds: <%= @listing.bed_num %> Baths: <%= @listing.bathroom_num %></p>
+
+<p>Location: <%= @listing.city_town %>, <%= @listing.state_county %>, <%= @listing.country %></p>
+
+<% if @listing.user_id == current_user.id %>
+<%= link_to 'Edit this listing', edit_listing_path(@listing) %>
+
+<%= link_to 'Delete', listing_path(@listing),data: {:confirm => 'Are you sure?'}, :method => :delete %>
+<% end %>
+
+
