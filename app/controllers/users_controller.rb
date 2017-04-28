@@ -21,6 +21,13 @@ class UsersController < Clearance::UsersController
   end
 
   def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_from_params)
+    redirect_back_or url_after_create
   end
 
   private

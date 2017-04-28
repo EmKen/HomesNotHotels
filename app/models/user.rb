@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   include Clearance::User
   has_many :authentications, :dependent => :destroy
+  has_many :listings, :dependent => :destroy
+
 	validates :first_name, :last_name, presence: { message: "is required" }
 		
 	with_options unless: :facebook_signin? do |form|
@@ -28,7 +30,6 @@ class User < ApplicationRecord
 	end
 
   def self.create_with_auth_and_hash(authentication, auth_hash)
-  	byebug
       user = User.create!(email: auth_hash["extra"]["raw_info"]["email"], first_name: auth_hash["extra"]["raw_info"]["first_name"], last_name: auth_hash["extra"]["raw_info"]["last_name"], dob: auth_hash["extra"]["raw_info"]["birthday"], signin_method: "facebook")
       user.authentications << (authentication)
       return user
