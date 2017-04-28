@@ -6,6 +6,16 @@
 
 </div>
 
+<%= form_tag("/", method: 'get') do %>
+	<% Listing.amenity_counts.each do |tag| %>
+	    <div>
+	      <%= check_box_tag "keywords[]", tag.name, @selected_tags.present? ? @selected_tags.include?(tag.name) : '' %>
+	      <%= tag.name %>
+	    </div>
+	<% end %>
+	<%= submit_tag "Filter" %>
+<% end %>
+
 
 <div>
 	<h2> Listings </h2>
