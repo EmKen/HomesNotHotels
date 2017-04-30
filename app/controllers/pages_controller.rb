@@ -1,9 +1,10 @@
 class PagesController < ApplicationController
+	helper_method :sort_field, :sort_direction
   def index
   	if params[:search]
-  		@listings = Listing.where(["city_town LIKE ?", "%#{params[:search]}%"])
   		@search = params[:search]
-  	else
+  		@listings = Listing.search(@search)
+		else
   		@listings = Listing.all
   	end
   	if params[:keywords] && params[:keywords] != ""
@@ -13,5 +14,18 @@ class PagesController < ApplicationController
   		@selected_tags = []
   	#	@listings = Listing.all
   	end
+  	@listings = @listings.sort_by(&:"#{sort_field}")
+		@listings = @listings.reverse if sort_direction == 'DESC'
   end
+
+  private
+
+  def sort_field
+  	params[:sort] || "country"
+  end
+
+  def sort_direction
+  	params[:direction] || "asc"
+  end
+
 end
