@@ -1,20 +1,25 @@
-<div>
-	<%=link_to "All", root_path %> 
-	<% Listing.amenity_counts.each do |amenity| %>
-		  <%= link_to amenity.name, tag_path(amenity.name) %>
-	<% end %>
-
-</div>
-
 <%= form_tag("/", method: 'get') do %>
-	<% Listing.amenity_counts.each do |tag| %>
-	    <div>
-	      <%= check_box_tag "keywords[]", tag.name, @selected_tags.present? ? @selected_tags.include?(tag.name) : '' %>
-	      <%= tag.name %>
-	    </div>
+	<p>
+		<%= hidden_field_tag "keywords", @selected_tags %>
+		<%= text_field_tag "search", nil, placeholder: "Where do you want to go?" %>
+		<%= submit_tag "Search", name: nil %>
+	</p>
+<% end %>	
+
+
+<div class = "filters">
+	<h3> Amenities </h3>
+	<%= form_tag("/", method: 'get') do %>
+		<%= hidden_field_tag "search", @search %>
+		<% Listing.amenity_counts.each do |tag| %>
+		    <div>
+		      <%= check_box_tag "keywords[]", tag.name, @selected_tags.include?(tag.name) %>
+		      <%= tag.name %>
+		    </div>
+		<% end %>
+		<%= submit_tag "Filter", name: nil %>
 	<% end %>
-	<%= submit_tag "Filter" %>
-<% end %>
+</div>	
 
 
 <div>

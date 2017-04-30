@@ -12,6 +12,7 @@ class User < ApplicationRecord
 		form.validates :username, uniqueness: { case_sensitive: false, message: "has been taken, please chose another one"}
 	end
 	
+  enum status: { customer: 0, moderator: 1, superadmin: 2 }
 
   def password_optional?
     if self.facebook_signin?

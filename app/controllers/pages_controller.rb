@@ -1,11 +1,17 @@
 class PagesController < ApplicationController
   def index
-  	if params[:keywords]
-  		@selected_tags = params[:keywords]
-  		@listings = Listing.tagged_with(params[:keywords])
+  	if params[:search]
+  		@listings = Listing.where(["city_town LIKE ?", "%#{params[:search]}%"])
+  		@search = params[:search]
   	else
-  		@selected_tags = [nil]
   		@listings = Listing.all
+  	end
+  	if params[:keywords] && params[:keywords] != ""
+  		@selected_tags = params[:keywords]
+  		@listings = @listings.tagged_with(params[:keywords])
+  	else
+  		@selected_tags = []
+  	#	@listings = Listing.all
   	end
   end
 end

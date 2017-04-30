@@ -29,6 +29,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 # for tagging
 gem 'acts-as-taggable-on'
+# for seeding
+gem 'faker'
+# for pagination
+gem 'will_paginate'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
