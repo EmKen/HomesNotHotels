@@ -12,20 +12,20 @@ class PagesController < ApplicationController
   		@listings = @listings.tagged_with(params[:keywords])
   	else
   		@selected_tags = []
-  	#	@listings = Listing.all
   	end
   	@listings = @listings.sort_by(&:"#{sort_field}")
-		@listings = @listings.reverse if sort_direction == 'DESC'
+		@listings = @listings.reverse if sort_direction == "DESC"
+		@listings = @listings.paginate(per_page: 5, page: params[:page])
   end
 
   private
 
   def sort_field
-  	params[:sort] || "country"
+  	Listing.column_names.include?(params[:sort]) ? params[:sort] : "country"
   end
 
   def sort_direction
-  	params[:direction] || "asc"
+  	["ASC", "DESC"].include?(params[:direction]) ? params[:direction] : "ASC"
   end
 
 end
