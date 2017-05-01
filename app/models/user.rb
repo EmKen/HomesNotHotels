@@ -2,6 +2,7 @@ class User < ApplicationRecord
   include Clearance::User
   has_many :authentications, :dependent => :destroy
   has_many :listings, :dependent => :destroy
+  validates :username, uniqueness: { case_sensitive: false, message: "has been taken, please chose another one"}
 
 	validates :first_name, :last_name, presence: { message: "is required" }
 		
@@ -9,7 +10,6 @@ class User < ApplicationRecord
 		form.validates :password, format: { with: /(?=.*[a-zA-Z])(?=.*[0-9]).{6,}/,
 	  message: "must be at least 6 characters and include one number and one letter" }
 		form.validates :username, :dob, presence: { message: "is required" }
-		form.validates :username, uniqueness: { case_sensitive: false, message: "has been taken, please chose another one"}
 	end
 	
   enum status: { customer: 0, moderator: 1, superadmin: 2 }
