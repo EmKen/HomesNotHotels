@@ -26,7 +26,15 @@ class UsersController < Clearance::UsersController
   def update
     @user = User.find(params[:id])
     @user.update(user_from_params)
-    redirect_back_or url_after_create
+    if @user.save
+      redirect_back_or url_after_create
+    else
+      @errors = @user.errors.full_messages
+      respond_to do |format|
+        format.js
+        format.html
+      end
+    end
   end
 
   def username
