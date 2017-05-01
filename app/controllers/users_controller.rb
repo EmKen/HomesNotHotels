@@ -29,6 +29,10 @@ class UsersController < Clearance::UsersController
     redirect_back_or url_after_create
   end
 
+  def username
+    @user = User.find(params[:id])
+  end
+
   private
 
   def user_from_params
