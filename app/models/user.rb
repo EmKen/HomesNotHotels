@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include Clearance::User
+  mount_uploader :avatar, AvatarUploader
   has_many :authentications, :dependent => :destroy
   has_many :listings, :dependent => :destroy
   validates :username, uniqueness: { case_sensitive: false, message: "has been taken, please chose another one"}
@@ -13,6 +14,7 @@ class User < ApplicationRecord
 	end
 	
   enum role: { customer: 0, moderator: 1, superadmin: 2 }
+
 
   def password_optional?
     if self.facebook_signin?

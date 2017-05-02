@@ -33,6 +33,9 @@ gem 'acts-as-taggable-on'
 gem 'faker'
 # for pagination
 gem 'will_paginate'
+# for images
+gem 'carrierwave', '~> 1.0'
+gem "mini_magick"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
