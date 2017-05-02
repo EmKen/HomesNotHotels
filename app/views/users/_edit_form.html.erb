@@ -1,0 +1,31 @@
+<div class="field">
+  <%= edit_form.label :first_name %>
+  <%= edit_form.text_field :first_name %>
+</div>
+
+<div class="field">
+  <%= edit_form.label :last_name %>
+  <%= edit_form.text_field :last_name%>
+</div>
+
+<div class="field">
+  <%= edit_form.label :username %>
+  <%= edit_form.text_field :username%>
+</div>
+
+<div class="field">
+  <%= edit_form.label :email %>
+  <%= edit_form.text_field :email, type: 'email' %>
+</div>
+
+
+<div class="field">
+  <%= edit_form.label :avatar, "Change your profile picture:"%> </br>
+  <%= edit_form.file_field :avatar %>
+</div>
+
+<div class="field">
+  <%= edit_form.label :remote_avatar_url, "or paste image URL:"%>
+  <%= edit_form.text_field :remote_avatar_url %>
+</div>
+

@@ -1,0 +1,9 @@
+<div class="errors"></div>
+
+<%= form_for @user, remote: true do |form| %>
+  <%= render partial: '/users/edit_form', object: form %>
+
+  <div class="submit-field">
+    <%= form.submit %>
+  </div>
+ <% end %>

@@ -1,4 +1,9 @@
 <h1><%= @listing.title %></h1>
+<% if @listing.images.present? %>
+	<% @listing.images_urls(:listing_page).each do |img| %>
+		<%= image_tag img %>
+	<% end %>		
+<% end %>	
 
 <p><%= @listing.description %></p>
 

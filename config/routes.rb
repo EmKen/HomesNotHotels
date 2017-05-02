@@ -2,10 +2,9 @@ Rails.application.routes.draw do
   root "pages#index"
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "sessions", only: [:create]
-  resources :users
   resources :listings
 
-  resources :users, controller: "users", only: [:create] do
+  resources :users, controller: "users" do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
