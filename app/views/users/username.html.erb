@@ -1,6 +1,6 @@
 <div class="errors"></div>
 <% if @user.username == nil %>
-	<%= form_for @user do |form| %>
+	<%= form_for @user, remote: true do |form| %>
 		<div class="text-field">
 	  	<%= form.label :username %>
 	  	<%= form.text_field :username%>
