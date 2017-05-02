@@ -33,6 +33,9 @@
 
 	<% @listings.each do |listing| %>
 		<h3><%=link_to listing.title, listing_path(listing) %></h3>
+	  <% if listing.images.present? %>
+			<%= image_tag listing.images_urls(:homepage).first %>
+		<% end %>	
 
 		<p>Price: £<%= listing.price_per_night %></p>
 

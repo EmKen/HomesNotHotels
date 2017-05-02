@@ -36,7 +36,7 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :price_per_night, :room_type, :property_type, :guest_num, :bedroom_num, :bed_num, :bathroom_num, :address_line_one, :address_line_two, :city_town, :state_county, :country, :zip_postcode, :tag_list => [], :amenity_list => [])
+    params.require(:listing).permit(:title, :description, :price_per_night, :room_type, :property_type, :guest_num, :bedroom_num, :bed_num, :bathroom_num, :address_line_one, :address_line_two, :city_town, :state_county, :country, :zip_postcode, :tag_list => [], :amenity_list => [], :images => [])
   end
 
 end

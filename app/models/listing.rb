@@ -2,6 +2,7 @@ class Listing < ApplicationRecord
 	belongs_to	:user
 	acts_as_taggable
 	acts_as_taggable_on :amenities
+	mount_uploaders :images, ImageUploader
 	
 	def self.search(search)
 		if search

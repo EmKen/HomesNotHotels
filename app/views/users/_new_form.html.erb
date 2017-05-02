@@ -1,0 +1,40 @@
+<div class="field">
+  <%= new_form.label :first_name %>
+  <%= new_form.text_field :first_name %>
+</div>
+
+<div class="field">
+  <%= new_form.label :last_name %>
+  <%= new_form.text_field :last_name%>
+</div>
+
+<div class="field">
+  <%= new_form.label :username %>
+  <%= new_form.text_field :username%>
+</div>
+
+<div class="field">
+  <%= new_form.label :dob, "Date of Birth" %>
+  <%= new_form.date_field :dob %>
+</div>
+
+<div class="field">
+  <%= new_form.label :email %>
+  <%= new_form.text_field :email, type: 'email' %>
+</div>
+
+<div class="field">
+  <%= new_form.label :password %>
+  <%= new_form.password_field :password %>
+</div>
+
+<div class="field">
+  <%= new_form.label :avatar, "Add Profile Picture"%> </br>
+  <%= new_form.file_field :avatar %>
+</div>
+
+<div class="field">
+  <%= new_form.label :remote_avatar_url, "or paste image URL:"%>
+  <%= new_form.text_field :remote_avatar_url %>
+</div>
+
