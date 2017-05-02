@@ -14,7 +14,7 @@
 </div>
 
 <div class="text-field">
-  <%= form.label :date_of_birth %>
+  <%= form.label :dob, "Date of Birth" %>
   <%= form.date_field :dob %>
 </div>
 
@@ -26,6 +26,11 @@
 <div class="password-field">
   <%= form.label :password %>
   <%= form.password_field :password %>
+</div>
+
+<div class="field">
+  <%= form.label :avatar%>
+  <%= form.file_field :avatar %>
 </div>
 
 
