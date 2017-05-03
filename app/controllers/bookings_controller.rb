@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
   	if @booking.save
       redirect_to @listing
     else
+    	@errors = @booking.errors.full_messages
       render 'new'
     end
   end

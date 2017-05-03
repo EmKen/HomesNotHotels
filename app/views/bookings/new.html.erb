@@ -1,4 +1,11 @@
-<div id="errors"></div>
+<% if @errors.present? %>	
+	<ul>
+	<% @errors.each do |msg| %>
+	  <li><%= msg %></li>
+	<% end %>
+	</ul>
+	</br>
+<% end %>
 
 <%= form_for @booking, url: listing_bookings_path do |form| %>
   <%= render partial: '/bookings/form', object: form %>
