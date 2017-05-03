@@ -1,0 +1,9 @@
+<div id="errors"></div>
+
+<%= form_for @booking, url: listing_bookings_path do |form| %>
+  <%= render partial: '/bookings/form', object: form %>
+
+  <div class="submit-field">
+    <%= form.submit %>
+  </div>
+<% end %>

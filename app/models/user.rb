@@ -3,6 +3,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   has_many :authentications, :dependent => :destroy
   has_many :listings, :dependent => :destroy
+  has_many :bookings, :dependent => :destroy
   validates :username, uniqueness: { case_sensitive: false, message: "has been taken, please chose another one"}
 
 	validates :first_name, :last_name, presence: { message: "is required" }
