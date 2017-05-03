@@ -8,7 +8,7 @@
 <% end %>
 
 <%= form_for @booking, url: listing_bookings_path do |form| %>
-  <%= render partial: '/bookings/form', object: form %>
+  <%= render partial: '/bookings/form', object: form, locals: {price: @listing.price_per_night.to_f} %>
 
   <div class="submit-field">
     <%= form.submit %>

@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   get "users/:id/username" => "users#username", as: "create_username"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   get "tags/:tag", to: "pages#index", as: :tag
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
