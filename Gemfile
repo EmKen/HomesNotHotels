@@ -44,6 +44,9 @@ gem "bootstrap_form"
 gem "braintree"
 # For background jobs
 gem "sidekiq"
+# For deployment
+gem "rails_12factor"
+gem "unicorn"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
