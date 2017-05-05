@@ -1,6 +1,6 @@
   <div id="errors"></div>
 
-  <%= form_for @listing, remote: true do |form| %>
+  <%= bootstrap_form_for @listing, remote: true do |form| %>
     <%= render partial: '/listings/form', object: form %>
 
     <div class="submit-field">

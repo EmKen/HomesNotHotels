@@ -37,6 +37,9 @@ gem 'will_paginate'
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
 gem "fog"
+# bootstrap for styyle
+gem "bootstrap-sass"
+gem "bootstrap_form"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

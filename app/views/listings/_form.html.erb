@@ -38,54 +38,42 @@
 </div>
 
 <div class="number-field">
-  <%= form.label :number_of_bathrooms %>
-  <%= form.number_field :bathroom_num%>
+  <%= form.number_field :bathroom_num, label: "Number of Bathrooms"%>
 </div>
 
 <div class="text-field">
-  <%= form.label :street_address %>
   <%= form.text_field :address_line_one %>
 </div>
 
 <div class="text-field">
-  <%= form.label :address_line_two %>
   <%= form.text_field :address_line_two %>
 </div>
 
 <div class="text-field">
-  <%= form.label :town_or_city %>
-  <%= form.text_field :city_town %>
+  <%= form.text_field :city_town, label: "Town/City" %>
 </div>
 
 <div class="text-field">
-  <%= form.label :state_or_county %>
-  <%= form.text_field :state_county %>
+  <%= form.text_field :state_county, label: "State/Province/County" %>
 </div>
 
 <div class="text-field">
-  <%= form.label :country %>
   <%= form.text_field :country %>
 </div>
 
 <div class="text-field">
-  <%= form.label :zip_or_postcode %>
-  <%= form.text_field :zip_postcode %>
+  <%= form.text_field :zip_postcode, label: "Zip/Postcode" %>
 </div>
 
 <div class="checkbox-fields">
   Amenities</br>
-  <%= form.label :amenity_list, "Washing machine" %>
-  <%= form.check_box :amenity_list, { :multiple => true }, 'Washing machine', nil %>
-  <%= form.label :amenity_list, "Swimming pool" %>
-  <%= form.check_box :amenity_list, { :multiple => true }, 'Swimming pool', nil %>
-  <%= form.label :amenity_list, "WiFi" %>
-  <%= form.check_box :amenity_list, { :multiple => true }, 'WiFi', nil %>
-  <%= form.label :amenity_list, "Kitchen" %>
-  <%= form.check_box :amenity_list, { :multiple => true }, 'Kitchen', nil %>
+  <%= form.check_box :amenity_list, { multiple: true, label: "Washing machine" }, 'Washing machine', nil %>
+  <%= form.check_box :amenity_list, { multiple: true, label: "Swimming pool" }, 'Swimming pool', nil %>
+  <%= form.check_box :amenity_list, { multiple: true, label: "WiFi" }, 'WiFi', nil %>
+  <%= form.check_box :amenity_list, { multiple: true, label: "Kitchen" }, 'Kitchen', nil %>
 </div>
 
 <div class="field">
-  <%= form.label :images %>
   <%= form.file_field :images, multiple: true %>
 </div>
 
