@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
   	@booking.listing_id = params[:listing_id]
   	@listing = Listing.find(params[:listing_id])
   	if @booking.save
-      redirect_to @listing
+      redirect_to new_booking_braintree_path(@booking)
     else
     	@errors = @booking.errors.full_messages
       render 'new'

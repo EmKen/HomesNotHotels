@@ -40,6 +40,8 @@ gem "fog"
 # bootstrap for styyle
 gem "bootstrap-sass"
 gem "bootstrap_form"
+# For payment processing
+gem "braintree"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

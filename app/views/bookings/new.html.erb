@@ -11,6 +11,6 @@
   <%= render partial: '/bookings/form', object: form, locals: {price: @listing.price_per_night.to_f} %>
 
   <div class="submit-field">
-    <%= form.submit %>
+    <%= form.submit "Proceed to Payment" %>
   </div>
 <% end %>
