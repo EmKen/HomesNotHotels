@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @guest.username %> has booked to stay at <%=@booking.listing.address_line_one%>!</h1>
+    <p>
+      <%= @guest.username %> will be staying from <%= @booking.check_in %> to <%= @booking.check_out %>.
+    </p>
+  </body>
+</html>
