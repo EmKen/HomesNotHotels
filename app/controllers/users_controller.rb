@@ -14,7 +14,6 @@ class UsersController < Clearance::UsersController
       @errors = @user.errors.full_messages
       respond_to do |format|
         format.js
-        format.html
       end
     end
   end
@@ -31,9 +30,9 @@ class UsersController < Clearance::UsersController
     else
       @errors = @user.errors.full_messages
       respond_to do |format|
-        format.js
-        format.html
+        format.js { render "update.js.erb"}
       end
+      # redirect_to "/"
     end
   end
 
