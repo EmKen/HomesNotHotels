@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   root "pages#index"
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "sessions", only: [:create]
-  resources :listings
+ # resources :listings
+  resources :listings do
+    resources :bookings
+  end
 
   resources :users, controller: "users" do
+    resources :bookings
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
@@ -16,5 +20,6 @@ Rails.application.routes.draw do
   get "users/:id/username" => "users#username", as: "create_username"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   get "tags/:tag", to: "pages#index", as: :tag
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

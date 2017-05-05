@@ -1,0 +1,23 @@
+<div class="field">
+  <%= form.label :check_in %>
+  <%= form.date_field :check_in, id: "check_in" %>
+</div>
+
+<div class="field">
+  <%= form.label :check_out %>
+  <%= form.date_field :check_out, id: "check_out"%>
+</div>
+
+<div id="price" data-per-night = <%= price %> >
+£0.00
+</div>
+<script>
+$("form").change(function() {
+	var check_in_date = new Date(($("#check_in").val()))
+	var check_out_date = new Date(($("#check_out").val()))
+	var difference = (check_out_date - check_in_date)/1000/60/60/24
+	if (difference > 0) {
+		$("#price").html("£" + (Number($("#price").data("per-night"))*difference).toFixed(2));
+	}
+})
+</script>
