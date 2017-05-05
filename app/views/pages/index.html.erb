@@ -31,23 +31,29 @@
 <div>
 	<h2> Listings </h2>
 
-	<% @listings.each do |listing| %>
-		<h3><%=link_to listing.title, listing_path(listing) %></h3>
-	  <% if listing.images.present? %>
-			<%= image_tag listing.images_urls(:homepage).first %>
-		<% end %>	
+	<% @listings.in_groups_of(3, false).each do |group| %>
+	  <div class="row">
 
-		<p>Price: £<%= listing.price_per_night %></p>
+      	<% group.each do |listing| %>
+	        <div class="listing col-md-4">
+							<h3><%=link_to listing.title, listing_path(listing) %></h3>
+						  <% if listing.images.present? %>
+								<%= image_tag listing.images_urls(:homepage).first %>
+							<% end %>	
 
-		<p>Room Type: <%= listing.room_type %></p>
+							<p>Price: £<%= listing.price_per_night %></p>
 
-		<p>Property Type: <%= listing.property_type %></p>
+							<p>Room Type: <%= listing.room_type %></p>
 
-		<p>Bedrooms: <%= listing.bedroom_num %> Beds: <%= listing.bed_num %></p>
+							<p>Property Type: <%= listing.property_type %></p>
 
-		<p>Location: <%= listing.city_town %>, <%= listing.state_county %>, <%= listing.country %></p>
+							<p>Bedrooms: <%= listing.bedroom_num %> Beds: <%= listing.bed_num %></p>
 
-	<% end %>	
+							<p>Location: <%= listing.city_town %>, <%= listing.state_county %>, <%= listing.country %></p>
+					</div>
+	      <% end %>
+	  </div>
+	<% end %>
 <%= will_paginate @listings %>
-
 </div>
+

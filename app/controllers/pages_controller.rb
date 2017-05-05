@@ -15,7 +15,7 @@ class PagesController < ApplicationController
   	end
   	@listings = @listings.sort_by(&:"#{sort_field}")
 		@listings = @listings.reverse if sort_direction == "DESC"
-		@listings = @listings.paginate(per_page: 5, page: params[:page])
+		@listings = @listings.paginate(per_page: 9, page: params[:page])
   end
 
   private
