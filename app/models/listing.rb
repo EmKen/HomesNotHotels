@@ -4,6 +4,7 @@ class Listing < ApplicationRecord
 	acts_as_taggable
 	acts_as_taggable_on :amenities
 	mount_uploaders :images, ImageUploader
+	scope :room_type, -> (room_type) { where room_type: room_type }
 	
 	def self.search(search)
 		if search
