@@ -1,18 +1,23 @@
 class PagesController < ApplicationController
 	helper_method :sort_field, :sort_direction
   def index
-  	if params[:search]
+    
+  	if params[:search] && params[:search] != ""
   		@search = params[:search]
   		@listings = Listing.search(@search)
 		else
   		@listings = Listing.all
   	end
-  	if params[:keywords] && params[:keywords] != ""
-  		@selected_tags = params[:keywords]
-  		@listings = @listings.tagged_with(params[:keywords])
-  	else
-  		@selected_tags = []
+  	if params[:amenities] && params[:amenities] != ""
+  		@amenities = params[:amenities]
+  		@listings = @listings.tagged_with(params[:amenities])
+    else
+      @amenities = []
   	end
+    if params[:room_types] && params[:room_types] != ""
+      @listings = @listings.room_type(params[:room_types])
+      @room_types = params[:room_types]
+    end
   	@listings = @listings.sort_by(&:"#{sort_field}")
 		@listings = @listings.reverse if sort_direction == "DESC"
 		@listings = @listings.paginate(per_page: 9, page: params[:page])

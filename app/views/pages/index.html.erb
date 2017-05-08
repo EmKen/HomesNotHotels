@@ -1,6 +1,15 @@
 <%= form_tag("/", method: 'get') do %>
 	<p>
-		<%= hidden_field_tag "keywords", @selected_tags %>
+		<% if @amenities %>
+		 	<% @amenities.each do |amenity| %>
+				<%= hidden_field_tag "amenities[]",  amenity %>
+			<% end %>
+		<% end %>
+		<% if @room_types %>
+		 	<% @room_types.each do |type| %>
+				<%= hidden_field_tag "room_types[]", type %>
+			<% end %>
+		<% end %>
 		<%= hidden_field_tag "sort", params[:sort] %>
 		<%= hidden_field_tag "direction", params[:direction] %>
 		<%= text_field_tag "search", @search, placeholder: "Where do you want to go?"%>
@@ -10,16 +19,25 @@
 
 
 <div class = "filters">
-	<h3> Amenities </h3>
+	<h2> Filters </h2>
 	<%= form_tag("/", method: 'get') do %>
 		<%= hidden_field_tag "search", @search %>
 		<%= hidden_field_tag "sort", params[:sort] %>
 		<%= hidden_field_tag "direction", params[:direction] %>
+		<h3> Amenities </h3>
 		<% Listing.amenity_counts.each do |tag| %>
-		    <div>
-		      <%= check_box_tag "keywords[]", tag.name, @selected_tags.include?(tag.name) %>
-		      <%= tag.name %>
-		    </div>
+	    <div>
+	      <%= check_box_tag "amenities[]", tag.name, @amenities.include?(tag.name) %>
+	      <%= tag.name %>
+	    </div>
+		<% end %>
+		<h3> Room Type </h3>
+		<% room_options = ["Entire home", "Private room", "Shared room"] %>
+		<% room_options.each do |type| %>
+	    <div>
+	      <%= check_box_tag "room_types[]", type, @room_types.present? ? @room_types.include?(type) : true %>
+	      <%= type %>
+	    </div>
 		<% end %>
 		<%= submit_tag "Filter", name: nil %>
 	<% end %>
@@ -49,6 +67,13 @@
 							<p>Bedrooms: <%= listing.bedroom_num %> Beds: <%= listing.bed_num %></p>
 
 							<p>Location: <%= listing.city_town %>, <%= listing.state_county %>, <%= listing.country %></p>
+
+							<p>Amenities</br> <ul>
+							<% listing.amenity_list.each do |amenity| %>
+							  <li><%= amenity %></li>
+							<% end %>
+							</ul>
+							</p>
 					</div>
 	      <% end %>
 	  </div>

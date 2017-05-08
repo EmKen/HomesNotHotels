@@ -1,40 +1,32 @@
 <div class="text-field">
-  <%= form.label :title %>
   <%= form.text_field :title %>
 </div>
 
 <div class="text-field">
-  <%= form.label :description %>
   <%= form.text_area :description%>
 </div>
 
 <div class="price-field">
-  <%= form.label :price_per_night %>
   <%= form.number_field :price_per_night%>
 </div>
 
 <div class="text-field">
-  <%= form.label :room_type %>
   <%= form.text_field :room_type %>
 </div>
 
 <div class="text-field">
-  <%= form.label :property_type %>
   <%= form.text_field :property_type %>
 
 <div class="number-field">
-  <%= form.label :maximum_guests %>
-  <%= form.number_field :guest_num%>
+  <%= form.number_field :guest_num, label: "Maximum Guests"%>
 </div>
 
 <div class="number-field">
-  <%= form.label :number_of_bedrooms %>
-  <%= form.number_field :bedroom_num%>
+  <%= form.number_field :bedroom_num, label: "Number of Bedrooms"%>
 </div>
 
-<div class="number-field">
-  <%= form.label :number_of_beds %>
-  <%= form.number_field :bed_num%>
+<div class="number-field">>
+  <%= form.number_field :bed_num, label: "Number of Beds"%>
 </div>
 
 <div class="number-field">
